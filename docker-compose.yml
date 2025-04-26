@@ -11,9 +11,10 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DEBUG=0
-      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,[::1]
-
+      - DEBUG=False
+      - DJANGO_ALLOWED_HOSTS=darmarket-production.up.railway.app,localhost,127.0.0.1
+ 
+ 
 volumes:
   static_volume:
-  media_volume: 
+  media_volume:
