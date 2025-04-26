@@ -35,9 +35,29 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'dar_market.urls'
 
-# Templates, WSGI, etc... (rien à changer)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
-# Database (rien à changer pour sqlite, mais en prod tu passeras sûrement sur PostgreSQL)
+# Configuration de la base de données
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Password validation (rien à changer)
 
