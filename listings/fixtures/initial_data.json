@@ -1,0 +1,110 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "admin",
+            "password": "pbkdf2_sha256$600000$your_password_hash_here",
+            "is_superuser": true,
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2024-04-26T12:00:00Z"
+        }
+    },
+    {
+        "model": "listings.property",
+        "pk": 1,
+        "fields": {
+            "title": "Belle maison familiale à Casablanca",
+            "description": "Magnifique maison de 200m² avec jardin, 4 chambres, 2 salles de bain, cuisine équipée et garage. Idéale pour une famille.",
+            "price": 2500000.00,
+            "address": "123 Avenue Hassan II",
+            "city": "Casablanca",
+            "property_type": "HOUSE",
+            "transaction_type": "SALE",
+            "area": 200.00,
+            "bedrooms": 4,
+            "bathrooms": 2,
+            "main_image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+            "created_at": "2024-04-26T12:00:00Z",
+            "updated_at": "2024-04-26T12:00:00Z",
+            "owner": 1
+        }
+    },
+    {
+        "model": "listings.property",
+        "pk": 2,
+        "fields": {
+            "title": "Appartement moderne à Rabat",
+            "description": "Bel appartement de 120m² avec vue sur la mer, 3 chambres, 2 salles de bain, balcon et parking souterrain.",
+            "price": 1500000.00,
+            "address": "45 Boulevard Mohammed V",
+            "city": "Rabat",
+            "property_type": "APARTMENT",
+            "transaction_type": "SALE",
+            "area": 120.00,
+            "bedrooms": 3,
+            "bathrooms": 2,
+            "main_image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
+            "created_at": "2024-04-26T12:00:00Z",
+            "updated_at": "2024-04-26T12:00:00Z",
+            "owner": 1
+        }
+    },
+    {
+        "model": "listings.property",
+        "pk": 3,
+        "fields": {
+            "title": "Terrain constructible à Marrakech",
+            "description": "Terrain de 500m² dans un quartier résidentiel calme, viabilisé, idéal pour construction villa.",
+            "price": 1800000.00,
+            "address": "78 Route de l'Ourika",
+            "city": "Marrakech",
+            "property_type": "LAND",
+            "transaction_type": "SALE",
+            "area": 500.00,
+            "main_image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
+            "created_at": "2024-04-26T12:00:00Z",
+            "updated_at": "2024-04-26T12:00:00Z",
+            "owner": 1
+        }
+    },
+    {
+        "model": "listings.property",
+        "pk": 4,
+        "fields": {
+            "title": "Local commercial à Tanger",
+            "description": "Local commercial de 150m² en plein centre-ville, vitrine, stockage, idéal pour commerce.",
+            "price": 2000000.00,
+            "address": "15 Rue du Commerce",
+            "city": "Tanger",
+            "property_type": "COMMERCIAL",
+            "transaction_type": "SALE",
+            "area": 150.00,
+            "main_image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa",
+            "created_at": "2024-04-26T12:00:00Z",
+            "updated_at": "2024-04-26T12:00:00Z",
+            "owner": 1
+        }
+    },
+    {
+        "model": "listings.property",
+        "pk": 5,
+        "fields": {
+            "title": "Studio meublé à Agadir",
+            "description": "Studio moderne de 35m², meublé, climatisé, proche plage, idéal pour location saisonnière.",
+            "price": 3500.00,
+            "address": "8 Rue de la Plage",
+            "city": "Agadir",
+            "property_type": "APARTMENT",
+            "transaction_type": "RENT",
+            "area": 35.00,
+            "bedrooms": 1,
+            "bathrooms": 1,
+            "main_image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
+            "created_at": "2024-04-26T12:00:00Z",
+            "updated_at": "2024-04-26T12:00:00Z",
+            "owner": 1
+        }
+    }
+] 

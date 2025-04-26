@@ -1,0 +1,72 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}Annonces immobilières{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Annonces immobilières</h1>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for property in properties %}
+    <div class="col">
+        <div class="card h-100">
+            {% if property.main_image %}
+            <img src="{{ property.main_image }}" class="card-img-top" alt="{{ property.title }}" style="height: 200px; object-fit: cover;">
+            {% else %}
+            <div class="card-img-top bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
+                <i class="fas fa-home fa-3x"></i>
+            </div>
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ property.title }}</h5>
+                <p class="card-text">
+                    <strong>{{ property.get_transaction_type_display }}</strong> - 
+                    {{ property.get_property_type_display }}
+                </p>
+                <p class="card-text">
+                    <strong>Prix:</strong> {{ property.price }} €<br>
+                    <strong>Ville:</strong> {{ property.city }}<br>
+                    <strong>Surface:</strong> {{ property.area }} m²
+                </p>
+                <a href="{% url 'property_detail' pk=property.pk %}" class="btn btn-primary">Voir détails</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <p>Aucune annonce disponible pour le moment.</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% if properties.has_other_pages %}
+<nav aria-label="Page navigation" class="mt-4">
+    <ul class="pagination justify-content-center">
+        {% if properties.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ properties.previous_page_number }}">Précédent</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">Précédent</span>
+        </li>
+        {% endif %}
+
+        {% for num in properties.paginator.page_range %}
+        <li class="page-item {% if properties.number == num %}active{% endif %}">
+            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+        </li>
+        {% endfor %}
+
+        {% if properties.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ properties.next_page_number }}">Suivant</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">Suivant</span>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+{% endblock %} 
