@@ -1,12 +1,14 @@
 *.pyc
-__pycache__/
+__pycache__
 db.sqlite3
 .env
 .venv
 venv/
-ENV/
+media/
+staticfiles/
 .idea/
 .vscode/
 *.log
 media/
-staticfiles/ 
+staticfiles/
+.gitignore
