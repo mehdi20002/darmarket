@@ -6,15 +6,27 @@ services:
     command: gunicorn dar_market.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - .:/app
-      - static_volume:/app/staticfiles
-      - media_volume:/app/media
     ports:
       - "8000:8000"
     environment:
-      - DEBUG=False
-      - DJANGO_ALLOWED_HOSTS=darmarket-production.up.railway.app,localhost,127.0.0.1
- 
- 
+      - PGDATABASE=${PGDATABASE}
+      - PGUSER=${PGUSER}
+      - PGPASSWORD=${PGPASSWORD}
+      - PGHOST=${PGHOST}
+      - PGPORT=${PGPORT}
+    depends_on:
+      - db
+  
+  db:
+    image: postgres:17
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${PGDATABASE}
+      - POSTGRES_USER=${PGUSER}
+      - POSTGRES_PASSWORD=${PGPASSWORD}
+
 volumes:
+  postgres_data:
   static_volume:
   media_volume:
