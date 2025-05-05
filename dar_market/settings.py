@@ -9,7 +9,12 @@ SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'melodious-trust-production.up.railway.app', 'darmarket-production.up.railway.app']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'darmarket-production.up.railway.app',
+    '.railway.app'  # Permet tous les sous-domaines railway.app
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -55,13 +60,22 @@ TEMPLATES = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('PGDATABASE'),  
+        'NAME': os.getenv('PGDATABASE'),
         'USER': os.getenv('PGUSER'),
         'PASSWORD': os.getenv('PGPASSWORD'),
         'HOST': os.getenv('PGHOST'),
-        'PORT': '5432',
+        'PORT': os.getenv('PGPORT', '5432'),
     }
 }
+
+# Sécurité pour la production
+CSRF_TRUSTED_ORIGINS = [
+    'https://darmarket-production.up.railway.app'
+]
+
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 # Password validation (rien à changer)
 
