@@ -39,4 +39,5 @@ class PropertyForm(forms.ModelForm):
         ]
         widgets = {
             'description': forms.Textarea(attrs={'rows': 4}),
-        } 
+            'main_image': forms.URLInput(attrs={'placeholder': 'https://exemple.com/image.jpg'}),
+        }
